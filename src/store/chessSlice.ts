@@ -1,6 +1,7 @@
-import { createSlice, PayloadAction } from "redux-starter-kit";
+import { createSlice, PayloadAction, combineReducers } from "redux-starter-kit";
 import initialState from "./initialState";
 import { ChessPiece, ChessState } from "./types";
+import { Reducer } from "react";
 
 const chessSlice = createSlice({
   name: "chess",
@@ -10,3 +11,7 @@ const chessSlice = createSlice({
     selectDestination(state, action: PayloadAction<Coordinates>) {}
   }
 });
+
+export default chessSlice.reducer;
+
+export const { selectDestination, selectPiece } = chessSlice.actions;
