@@ -1,5 +1,5 @@
-import { configureStore, combineReducers } from "redux-starter-kit";
 import chessReducer from "./chessSlice";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 
 const rootReducer = combineReducers({
   chess: chessReducer

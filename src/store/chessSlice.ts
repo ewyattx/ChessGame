@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, combineReducers } from "redux-starter-kit";
+import { createSlice, PayloadAction, combineReducers } from "@reduxjs/toolkit";
 import initialState from "./initialState";
 import { ChessPiece, ChessState } from "./types";
 import { Reducer } from "react";

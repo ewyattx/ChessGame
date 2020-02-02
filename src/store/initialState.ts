@@ -1,4 +1,4 @@
-import { ChessPiece, ChessState } from "./types";
+import { ChessPiece, ChessState, Player } from "./types";
 const whitePawn: ChessPiece = {
   team: "white",
   piece: "P"
@@ -93,7 +93,10 @@ const initialState: ChessState = {
       blackKnight,
       blackRook
     ]
-  ]
+  ],
+  selectedSquare: { x: NaN, y: NaN },
+  potentialMovementState: [],
+  turn: Player.WHITE
 };
 
 export default initialState;
