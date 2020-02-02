@@ -1,27 +1,36 @@
 import "./Game.scss";
 import React from "react";
-import { ChessRow, Player } from "../../store/types";
+import { ChessRow, Player, Turn } from "../../store/types";
+import Board from "../Board/Board";
 interface GameProps {
-  //   board: ChessRow[];
-  //   turn: Player;
   player1?: Player;
   player2?: Player;
+  turn: Turn;
+  changeTurn: (player: Player) => void;
 }
 function Game(props: GameProps) {
   return (
     <React.Fragment>
-      <div>Player1</div>
+      <div>Player {props.turn}</div>
       <h1 className="h1 mb-4 w-100 text-center text-Primary">Chess Game</h1>
-      {props.player1 === undefined && (
+      {props.player1 === undefined ? (
         <React.Fragment>
-          <label>Player 1 Choose Your Colour</label>
-          <button type="button" className="btn btn-dark btn-block">
-            Black
-          </button>
-          <button type="button" className="btn btn-light btn-block">
-            White
-          </button>
+          <label>Choose Your Colour</label>
+          <input
+            type="button"
+            className="btn btn-dark btn-block"
+            value={"Black"}
+            onClick={() => props.changeTurn(Player.BLACK)}
+          />
+          <input
+            type="button"
+            className="btn btn-light btn-block"
+            value={"White"}
+            onClick={() => props.changeTurn(Player.WHITE)}
+          />
         </React.Fragment>
+      ) : (
+        <Board />
       )}
     </React.Fragment>
   );
